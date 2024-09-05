@@ -5,7 +5,7 @@ import  {Header} from '@/app/components/header'
 
 
 export const metadata: Metadata = {
-  title: "Brendon Sants - santsmcb",
+  title: "Brendon Santos - santsmcb",
   description: "Portifolio proficional",
 };
 
