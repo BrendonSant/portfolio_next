@@ -4,6 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Clash+Display:wght@400;700&display=swap');
 
 
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -23,7 +24,9 @@ body {
 }
 
 @layer utilities {
+
   .text-balance {
     text-wrap: balance;
   }
 }
+

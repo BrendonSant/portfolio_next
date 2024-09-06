@@ -21,13 +21,13 @@ export function Header() {
   return (
     <header
       className={`flex justify-center items-center fixed w-full max z-50 px-5 transition-colors duration-300  ${
-        top ? "bg-mcolor-navy-navy-900" : "bg-mcolor-navy-navy-400/50"
+        top ? "bg-transparent" : "bg-mcolor-navy-navy-700/50 backdrop-blur"
       }`}
     >
         <div className=" flex items-center max-w-screen-xl w-full justify-between">
             <div>
                 <Link href="/">
-                <LogoW className="size-20 antialiased" />
+                <LogoW className="size-16 antialiased" />
                 </Link>
             </div>
             <nav className="px-2 flex justify-around">
