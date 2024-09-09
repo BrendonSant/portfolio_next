@@ -2,7 +2,6 @@
 
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useRef } from "react";
-import { OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
 
 function Box() {
@@ -35,16 +34,16 @@ function MovingLight() {
     }
   });
 
-  return <pointLight ref={lightRef} intensity={10} color={"white"} />;
+  return <pointLight ref={lightRef} intensity={25} color={"blue"} />;
 }
 
 export default function ThreeViewport() {
   return (
     <div className="w-full h-screen relative">
       {/* Configurando alpha para true para fundo transparente */}
-      <Canvas gl={{ alpha: true }}>
+      <Canvas className="w-full" gl={{ alpha: true }}>
         {/* Luz ambiente */}
-        <ambientLight intensity={0.5} />
+        <ambientLight intensity={0.3} />
         <MovingLight />
         {/* Objeto 3D no canto direito */}
         <Box />
@@ -53,8 +52,8 @@ export default function ThreeViewport() {
       </Canvas>
 
       {/* Frase no canto esquerdo */}
-      <div className="absolute top-1/3 left-60 text-white text-xl">
-        <h1 className="font-clash-display text-6xl">
+      <div className="absolute top-1/3 left-1/4 text-white text-xl ">
+        <h1 className="transition ease-in-out duration-500 font-clash-display text-6xl hover:text-blue-500">
           Seja Bem Vindo <br /> meu nome é <br /> Brendon Santos
         </h1>
       </div>
