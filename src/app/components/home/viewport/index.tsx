@@ -35,29 +35,17 @@ function MovingLight() {
     }
   });
 
-  return <pointLight ref={lightRef} intensity={10} color={"#3BDBF2"} />;
-}
-
-function BackgroundPlane() {
-  return (
-    <mesh position={[0, 0, -10]} rotation={[0, 0, 0]}>
-      {/* Aumenta o tamanho do plano para cobrir a viewport */}
-      <planeGeometry args={[40, 40]} />
-      {/* Material que reage à luz */}
-      <meshStandardMaterial color="#070D28" />
-    </mesh>
-  );
+  return <pointLight ref={lightRef} intensity={10} color={"white"} />;
 }
 
 export default function ThreeViewport() {
   return (
     <div className="w-full h-screen relative">
-      <Canvas>
+      {/* Configurando alpha para true para fundo transparente */}
+      <Canvas gl={{ alpha: true }}>
         {/* Luz ambiente */}
-        <ambientLight intensity={0.2} />
+        <ambientLight intensity={0.5} />
         <MovingLight />
-        {/* Plano de fundo que reage à luz */}
-        <BackgroundPlane />
         {/* Objeto 3D no canto direito */}
         <Box />
         {/* Controles orbitais */}
