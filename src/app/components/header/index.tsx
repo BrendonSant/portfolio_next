@@ -24,34 +24,42 @@ export function Header() {
         top ? "bg-transparent" : "bg-mcolor-navy-navy-700/50 backdrop-blur"
       }`}
     >
+      <div className=" flex flex-col w-full justify-center items-center">
         <div className=" flex items-center max-w-screen-xl w-full justify-between">
-            <div>
-                <Link href="/">
-                <LogoW className="size-16 antialiased" />
-                </Link>
-            </div>
-            <nav className="px-2 flex justify-around">
-                <Link
-                className="px-3 transition ease-in duration-200 hover:text-mcolor-neon-neon-600"
-                href="/"
-                >
-                Home
-                </Link>
-                <Link
-                className="px-3 transition ease-in duration-200 hover:text-mcolor-neon-neon-600"
-                href="/skills"
-                >
-                About
-                </Link>
-                <Link
-                className="px-3 transition ease-in duration-200 hover:text-mcolor-neon-neon-600"
-                href="/3d"
-                >
-                Skills
-                </Link>
-            </nav> 
-        </div>
-      
+              <div>
+                  <Link href="/">
+                  <LogoW className="size-16 antialiased" />
+                  </Link>
+              </div>
+              <nav className="px-2 flex justify-around">
+                  <Link
+                  className="px-3 transition ease-in duration-200 hover:text-mcolor-neon-neon-600"
+                  href="/"
+                  >
+                  Home
+                  </Link>
+                  <Link
+                  className="px-3 transition ease-in duration-200 hover:text-mcolor-neon-neon-600"
+                  href="/#about"
+                  >
+                  About
+                  </Link>
+                  <Link
+                  className="px-3 transition ease-in duration-200 hover:text-mcolor-neon-neon-600"
+                  href="/#skills"
+                  >
+                  Skills
+                  </Link>
+              </nav> 
+              {/* Linha Horizontal */}
+              
+          </div>
+          <div className="w-full">
+                <hr className="border border-white w-full" />
+          </div>
+      </div>
+        
+     
     </header>
   );
 }
