@@ -11,8 +11,8 @@ function Box() {
   // Gira o cubo a cada frame
   useFrame(() => {
     if (ref.current) {
-      ref.current.rotation.x += 0.01;
-      ref.current.rotation.y += 0.01;
+      ref.current.rotation.x += 0.005;
+      ref.current.rotation.y += 0.005;
     }
   });
 
@@ -47,7 +47,7 @@ export default function ThreeViewport() {
       <fog attach="fog" args={['white', 15, 25]} />
       <Sparkles count={30} size={3} position={[0, 0.9, 0]} scale={[8, 8, 4]} speed={0.3} color='violet' />
         {/* Luz ambiente */}
-        <ambientLight intensity={0.35} />
+        <ambientLight intensity={0.4} />
         <MovingLight  />
         {/* Objeto 3D no canto direito */}
         <Box />
