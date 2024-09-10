@@ -2,7 +2,7 @@
 
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Sparkles, shaderMaterial, useGLTF, useTexture } from '@react-three/drei'
-import { useRef } from "react";
+import { useRef,useState } from "react";
 import * as THREE from "three";
 
 function Box() {
@@ -28,15 +28,32 @@ function Box() {
 
 function MovingLight() {
   const lightRef = useRef<THREE.PointLight>(null!);
+  const [lastPosition, setLastPosition] = useState<THREE.Vector3>(new THREE.Vector3());
 
   useFrame((state) => {
-    const { mouse } = state;
+    const { pointer } = state;
+
     if (lightRef.current) {
-      lightRef.current.position.set(mouse.x * 10, mouse.y * 10, 5);
+      // Calcula a nova posição baseada no ponteiro
+      const newPosition = new THREE.Vector3(pointer.x * 10, pointer.y * 10, 5);
+
+      // Compara a nova posição com a última posição
+      if (!newPosition.equals(lastPosition)) {
+        lightRef.current.position.copy(newPosition);
+        setLastPosition(newPosition.clone());
+      }
     }
   });
 
-  return <pointLight  power={300} castShadow ref={lightRef} intensity={50} color={"blue"} />;
+  return (
+    <pointLight
+      power={300}
+      castShadow
+      ref={lightRef}
+      intensity={50}
+      color={"blue"}
+    />
+  );
 }
 
 export default function ThreeViewport() {
