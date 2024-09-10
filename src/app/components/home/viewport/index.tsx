@@ -1,6 +1,7 @@
 "use client";
 
 import { Canvas, useFrame } from "@react-three/fiber";
+import { OrbitControls, Sparkles, shaderMaterial, useGLTF, useTexture } from '@react-three/drei'
 import { useRef } from "react";
 import * as THREE from "three";
 
@@ -18,8 +19,9 @@ function Box() {
   return (
     <mesh ref={ref} position={[2, 0, 0]}>
       {/* Aumenta o tamanho do cubo */}
-      <boxGeometry args={[3, 3, 3]} />
-      <meshStandardMaterial color="violet" />
+      <boxGeometry args={[2, 2, 2]} />
+      <meshStandardMaterial emissive="violet" emissiveIntensity={0.1} roughness={0.2}  color="rgba(73, 72, 119, 0.72)" />
+      
     </mesh>
   );
 }
@@ -34,17 +36,19 @@ function MovingLight() {
     }
   });
 
-  return <pointLight ref={lightRef} intensity={25} color={"blue"} />;
+  return <pointLight  power={300} castShadow ref={lightRef} intensity={50} color={"blue"} />;
 }
 
 export default function ThreeViewport() {
   return (
     <div className="w-full h-screen relative">
       {/* Configurando alpha para true para fundo transparente */}
-      <Canvas className="w-full" gl={{ alpha: true }}>
+      <Canvas  dpr={[1.5, 2]} linear shadows className="w-full" gl={{ alpha: true }}>
+      <fog attach="fog" args={['white', 15, 25]} />
+      <Sparkles count={30} size={3} position={[0, 0.9, 0]} scale={[8, 8, 4]} speed={0.3} color='violet' />
         {/* Luz ambiente */}
-        <ambientLight intensity={0.3} />
-        <MovingLight />
+        <ambientLight intensity={0.35} />
+        <MovingLight  />
         {/* Objeto 3D no canto direito */}
         <Box />
         {/* Controles orbitais */}
