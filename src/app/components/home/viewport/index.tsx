@@ -75,7 +75,7 @@ export default function ThreeViewport() {
       {/* Frase no canto esquerdo */}
       <div className="absolute top-1/3 left-1/4 text-white text-xl ">
         <h1 className="transition ease-in-out duration-500 font-clash-display text-6xl hover:text-blue-500">
-          Seja Bem Vindo <br /> meu nome é <br /> Brendon Santos
+        Welcome,<br /> my name is <br /> Brendon Santos
         </h1>
       </div>
     </div>
