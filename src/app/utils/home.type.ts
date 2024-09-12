@@ -23,7 +23,7 @@ export interface HomeProps{
 }
 
 interface SkillProps{
-    imagem:{
+    imagens:{
         url:string;
     }
 

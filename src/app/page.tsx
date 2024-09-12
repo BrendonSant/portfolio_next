@@ -2,8 +2,9 @@
  import { getDataHome } from "./utils/actions/get-data";
  import ThreeViewport from "./components/home/viewport";
  import { About } from "./components/home/about";
- import Skills from "./components/home/skills";
+ 
 import { HomeProps } from "./utils/home.type";
+import { Skills } from "./components/home/skills";
 
 export default async function Home() {
 
@@ -17,7 +18,8 @@ export default async function Home() {
       <ThreeViewport />
       <About txtabout={object.metadata.about.txtabout}
        url={object.metadata.about.imagem.url} />
-      <Skills icons={[]} imageLists={[]} />
+      <Skills />
+      
    
     </main>
   );
