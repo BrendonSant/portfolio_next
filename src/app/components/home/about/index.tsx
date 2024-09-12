@@ -1,18 +1,26 @@
+import Image from "next/image";
+import { fill } from "three/src/extras/TextureUtils.js";
+interface AboutProps{
+    txtabout:string;
+    url: string;
+}
 
-
-export function About(){
+export function About({txtabout, url}: AboutProps){
 
     return(
         <section className="w-full h-80 flex flex-col justify-center items-center">
             <div className="w-full max-w-screen-xl flex flex-col justify-center items-center">
                 <h1 className="text-3xl mb-6">About</h1>
                 <div className="flex justify-around items-center w-full ">
-                    <img className=" size-72" src="/img/Who.png" alt="who" />
-                    <p>
-                    I'm a Computer Engineering student, nerd and passionate about art. <br />
-                    I started my adventure in the world of digital arts in 2017 after completing <br />
-                    my course at Npix. Since then, I've dedicated myself to improving my work, <br />
-                    always looking for opportunities to learn more and show what I know.</p>
+                    <Image  alt='Imagem About'
+                    src={url}
+                    priority={true}
+                    quality={100}
+                    width={300}
+                    height={300}
+        
+                    />
+                    <p className="w-4/12 max-w-screen-sm">{txtabout}</p>
                 </div>
             </div>
             
