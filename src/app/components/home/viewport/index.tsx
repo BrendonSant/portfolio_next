@@ -1,29 +1,30 @@
 "use client";
 
 import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls, Sparkles, shaderMaterial, useGLTF, useTexture } from '@react-three/drei'
-import { useRef,useState } from "react";
+import { OrbitControls, Sparkles, useAnimations, useGLTF, useTexture } from '@react-three/drei'
+import { useRef,useState,useEffect } from "react";
 import * as THREE from "three";
+import { EffectComposer, Bloom } from '@react-three/postprocessing';
 
-function Box() {
-  const ref = useRef<THREE.Mesh>(null!);
 
-  // Gira o cubo a cada frame
-  useFrame(() => {
-    if (ref.current) {
-      ref.current.rotation.x += 0.005;
-      ref.current.rotation.y += 0.005;
+function Model({ url }: { url: string }) {
+  const group = useRef<any>();
+  const { scene, animations } = useGLTF(url); // Importando o modelo
+  const { actions } = useAnimations(animations, group); // Gerenciando as animações
+
+  // Execute a animação no carregamento
+  useEffect(() => {
+    if (actions) {
+      actions["Animation"]?.play(); // Substitua "ActionName" pelo nome da animação no modelo
     }
-  });
+  }, [actions]);
 
-  return (
-    <mesh ref={ref} position={[2, 0, 0]}>
-      {/* Aumenta o tamanho do cubo */}
-      <boxGeometry args={[2, 2, 2]} />
-      <meshStandardMaterial emissive="violet" emissiveIntensity={0.1} roughness={0.2}  color="rgba(73, 72, 119, 0.72)" />
-      
-    </mesh>
+  // Posiciona o modelo no centro da viewport
+  return(
+    <primitive ref={group} object={scene} position={[2, -2, 0]} scale={[1, 1, 1]}
+    rotation={[0, Math.PI-0.5, 0]} />
   );
+  
 }
 
 function MovingLight() {
@@ -47,11 +48,11 @@ function MovingLight() {
 
   return (
     <pointLight
-      power={300}
+      power={550}
       castShadow
       ref={lightRef}
-      intensity={50}
-      color={"blue"}
+      intensity={25}
+      color={"white"}
     />
   );
 }
@@ -59,16 +60,40 @@ function MovingLight() {
 export default function ThreeViewport() {
   return (
     <div className="w-full h-screen relative">
-      {/* Configurando alpha para true para fundo transparente */}
+      
       <Canvas  dpr={[1.5, 2]} linear shadows className="w-full" gl={{ alpha: true }}>
+        
       <fog attach="fog" args={['white', 15, 25]} />
       <Sparkles count={30} size={3} position={[0, 0.9, 0]} scale={[8, 8, 4]} speed={0.3} color='violet' />
-        {/* Luz ambiente */}
-        <ambientLight intensity={0.4} />
+        
+        <directionalLight 
+        position={[5, 10, 5]}  
+        intensity={1}          
+        castShadow           
+        shadow-mapSize-width={1024} 
+        shadow-mapSize-height={1024} 
+        />
+    
+       
+        <ambientLight  intensity={1}/>
         <MovingLight  />
-        {/* Objeto 3D no canto direito */}
-        <Box />
-        {/* Controles orbitais */}
+        <EffectComposer>
+        <Bloom
+          intensity={1.5} // Intensidade do efeito bloom
+          luminanceThreshold={0.2} // Definir limiar de luminosidade para aplicar o bloom
+          luminanceSmoothing={0.9} // Suavização entre as áreas brilhantes e as não brilhantes
+        />
+      </EffectComposer>
+        
+        <Model url="\MASCOTE.glb" /> 
+        <OrbitControls 
+        enablePan={false}            // Desabilita o movimento de "arrastar"
+        enableZoom={false}            // Mantém o zoom habilitado
+        minAzimuthAngle={-Math.PI / 6} // Limite esquerdo (em radianos)
+        maxAzimuthAngle={Math.PI / 6}  // Limite direito (em radianos)
+        minPolarAngle={Math.PI / 2}    // Limita a rotação vertical (ângulo superior)
+        maxPolarAngle={Math.PI / 2}    // Limita a rotação vertical (ângulo inferior)
+      />
         
       </Canvas>
 
