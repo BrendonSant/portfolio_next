@@ -48,7 +48,7 @@ function MovingLight() {
 
   return (
     <pointLight
-      power={550}
+      power={500}
       castShadow
       ref={lightRef}
       intensity={25}
@@ -64,7 +64,7 @@ export default function ThreeViewport() {
       <Canvas  dpr={[1.5, 2]} linear shadows className="w-full" gl={{ alpha: true }}>
         
       <fog attach="fog" args={['white', 25, 25]} />
-      <Sparkles count={30} size={3} position={[0, 0.9, 0]} scale={[8, 8, 4]} speed={0.3} color='violet' />
+      <Sparkles count={200} size={3} position={[0, 0.9, 0]} scale={[10, 10, 10]} speed={0.3} color='violet' />
         
         <directionalLight 
         position={[5, 10, 5]}  
