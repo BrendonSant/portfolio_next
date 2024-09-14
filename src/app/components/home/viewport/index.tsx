@@ -15,11 +15,11 @@ function Model({ url }: { url: string }) {
   // Execute a animação no carregamento
   useEffect(() => {
     if (actions) {
-      actions["Animation"]?.play(); // Substitua "ActionName" pelo nome da animação no modelo
+      actions["Animation"]?.play(); // nome da animação no modelo
     }
   }, [actions]);
 
-  // Posiciona o modelo no centro da viewport
+  // Posiciona o modelo 
   return(
     <primitive ref={group} object={scene} position={[2, -2, 0]} scale={[1, 1, 1]}
     rotation={[0, Math.PI-0.5, 0]} />
@@ -63,21 +63,23 @@ export default function ThreeViewport() {
       
       <Canvas  dpr={[1.5, 2]} linear shadows className="w-full" gl={{ alpha: true }}>
         
-      <fog attach="fog" args={['white', 15, 25]} />
+      <fog attach="fog" args={['white', 25, 25]} />
       <Sparkles count={30} size={3} position={[0, 0.9, 0]} scale={[8, 8, 4]} speed={0.3} color='violet' />
         
         <directionalLight 
         position={[5, 10, 5]}  
-        intensity={1}          
+        intensity={2}          
         castShadow           
         shadow-mapSize-width={1024} 
         shadow-mapSize-height={1024} 
+        color={"blue"}
         />
     
        
         <ambientLight  intensity={1}/>
         <MovingLight  />
         <EffectComposer>
+        
         <Bloom
           intensity={1.5} // Intensidade do efeito bloom
           luminanceThreshold={0.2} // Definir limiar de luminosidade para aplicar o bloom
