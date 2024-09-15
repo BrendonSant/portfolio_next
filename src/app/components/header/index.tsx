@@ -25,7 +25,7 @@ export function Header() {
       }`}
     >
       <div className=" flex flex-col w-full justify-center items-center">
-        <div className=" flex items-center max-w-screen-xl w-full justify-between">
+        <div className=" flex items-center max-w-screen-2xl w-full justify-between">
               <div>
                   <Link href="/">
                   <LogoW className="size-16 antialiased" />

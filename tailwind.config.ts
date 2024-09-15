@@ -10,6 +10,20 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      
+      keyframes: {
+        drop: {
+          '0%': { height: '0', opacity: '1' },
+          '100%': { height: '100%', opacity: '1' },
+        },
+      },
+      animation: {
+        drop: 'drop 1.5s ease-out infinite',
+      },
+    
+  
+
+
         colors: {
       "mcolor-red-red-50": "rgba(252, 233, 237, 1)",
       "mcolor-red-red-100": "rgba(246, 188, 198, 1)",

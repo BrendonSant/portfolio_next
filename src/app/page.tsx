@@ -3,6 +3,7 @@
  import ThreeViewport from "./components/home/viewport";
  import { About } from "./components/home/about";
  
+ 
 import { HomeProps } from "./utils/home.type";
 import { Skills } from "./components/home/skills";
 
@@ -18,7 +19,10 @@ export default async function Home() {
       <ThreeViewport />
       <About txtabout={object.metadata.about.txtabout}
        url={object.metadata.about.imagem.url} />
-      <Skills />
+       
+       <Skills object={object} />
+       
+      
       
    
     </main>

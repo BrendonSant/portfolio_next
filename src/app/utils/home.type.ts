@@ -17,20 +17,29 @@ export interface HomeProps{
            };
            skills:SkillProps[];
            skill_logos:SkilllogosProps[];
+           skill_logos2:SkilllogosProps2[];
            social:SocialProps[];
         }
     }
 }
 
+interface SkilllogosProps2{
+    dev:{
+        url:string;
+    }
+    
+}
+
+
 interface SkillProps{
-    imagens:{
+    model?:{
         url:string;
     }
 
 }
 
 interface SkilllogosProps{
-    logos:{
+    ui:{
         url:string;
     }
     

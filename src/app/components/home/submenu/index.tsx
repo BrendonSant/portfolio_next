@@ -24,7 +24,7 @@ export function Submenu() {
 
   return (
     <div className="flex w-full pt-16">
-      <div className="w-full px-8 max-w-screen-xl mt-4 hidden max-md:inline-flex">
+      <div className="w-full px-8 max-w-screen-2xl mt-4 hidden max-md:inline-flex">
         <Menu onClick={toggleMenu} className="cursor-pointer" size={34} />
       </div>
 

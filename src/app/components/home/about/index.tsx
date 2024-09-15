@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { fill } from "three/src/extras/TextureUtils.js";
+
 interface AboutProps{
     txtabout:string;
     url: string;
@@ -9,9 +9,9 @@ export function About({txtabout, url}: AboutProps){
 
     return(
         <section className="w-full h-80 flex flex-col justify-center items-center">
-            <div className="w-full max-w-screen-xl flex flex-col justify-center items-center">
-                <h1 className="text-3xl mb-6">About</h1>
-                <div className="flex justify-around items-center w-full ">
+            <div className="w-full max-w-screen-2xl flex flex-col justify-center items-center">
+                <h2 className="text-4xl mb-6">ABOUT</h2>
+                <div className="flex justify-around items-center w-full mt-8 ">
                     <Image  alt='Imagem About'
                     src={url}
                     priority={true}
