@@ -55,7 +55,6 @@ export function Header() {
               
           </div>
           <div className="w-full">
-                <hr className="border border-white w-full" />
           </div>
       </div>
         
