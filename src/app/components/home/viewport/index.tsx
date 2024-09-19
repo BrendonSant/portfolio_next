@@ -61,7 +61,7 @@ export default function ThreeViewport() {
   return (
     <div className="w-full h-screen relative">
       
-      <Canvas  dpr={[1.5, 2]} linear shadows className="w-full" gl={{ alpha: true }}>
+      <Canvas id="home"  dpr={[1.5, 2]} linear shadows className="w-full" gl={{ alpha: true }}>
         
       <fog attach="fog" args={['white', 25, 25]} />
       <Sparkles count={200} size={3} position={[0, 0.9, 0]} scale={[10, 10, 10]} speed={0.3} color='violet' />

@@ -48,6 +48,8 @@ interface SkilllogosProps{
 interface SocialProps{
     socialm:{
         url:string;
-    }
+
+    },
+    link:string;
     
 }

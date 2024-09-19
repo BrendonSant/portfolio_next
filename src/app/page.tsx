@@ -6,6 +6,7 @@
  
 import { HomeProps } from "./utils/home.type";
 import { Skills } from "./components/home/skills";
+import { Footer } from "./components/home/footer";
 
 export default async function Home() {
 
@@ -21,6 +22,7 @@ export default async function Home() {
        url={object.metadata.about.imagem.url} />
        
        <Skills object={object} />
+       <Footer object={object}/>
        
       
       

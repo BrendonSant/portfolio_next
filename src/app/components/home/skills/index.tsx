@@ -11,9 +11,9 @@ export function Skills({ object }: HomeProps) {
   
 
   return (
-    <div className="flex w-full mt-52 justify-center">
-      <section className="flex flex-col justify-center items-center max-w-screen-2xl w-full px-10">
-        <h2 className=" ml2 text-5xl tracking-widest mb-36 ml2 font-bold" ref={textRef}>SKILLS</h2>
+    <div className="flex w-full mt-52 justify-center ">
+      <section id="skills" className="flex flex-col justify-center items-center max-w-screen-2xl w-full px-10">
+        <h2 className=" ml2 text-5xl tracking-widest mb-36 ml2 font-bold mt-36" ref={textRef}>SKILLS</h2>
         <div className="w-full justify-center items-center">
           
           <div className="flex items-center mb-4">
