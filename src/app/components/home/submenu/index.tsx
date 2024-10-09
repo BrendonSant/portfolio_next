@@ -2,9 +2,16 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { X, Menu,LayoutPanelLeft,Move3D,Code } from "lucide-react"
+import {MenuProps} from '@/app/utils/menu.type'
 
-export function Submenu() {
+interface SubMenuProp{
+  menu: MenuProps
+}
+
+export function Submenu({menu}: SubMenuProp) {
   const [isOpen, setIsOpen] = useState(false)
+
+ 
 
   useEffect(() => {
     const handleResize = () => {
@@ -40,66 +47,38 @@ export function Submenu() {
           size={34}
         />
         <ul className="flex flex-col items-start space-y-6">
-          <li className="flex items-center">
-            <LayoutPanelLeft color="black"  />
-            <Link
-              className="transition ease-in duration-300 py-2 px-4 text-xl hover:text-purple-600  text-black"
-              href="post/Design"
-              onClick={toggleMenu} // Fechar o menu ao clicar
-            >
-              Design
-            </Link>
-          </li>
-          <li  className="flex items-center">
+         
+          {menu.objects.map( item => (
+            <li  className="flex items-center">
             <Move3D color="black" />
             <Link
               className="transition ease-in duration-300 py-2 px-4 text-xl hover:text-purple-600  text-black"
-              href="post/3d"
+              href={`/pos/${item.slug}`}
               onClick={toggleMenu} // Fechar o menu ao clicar
             >
-              3D
+              {item.title}
             </Link>
           </li>
-          <li  className="flex items-center">
-            <Code  color="black"/>
-            <Link
-              className="transition ease-in duration-300 py-2 px-4 text-xl hover:text-purple-600  text-black"
-              href="post/Dev"
-              onClick={toggleMenu} // Fechar o menu ao clicar
-            >
-              Dev
-            </Link>
-          </li>
+          ))}
+          
         </ul>
       </div>
 
       {/* Menu horizontal para telas maiores */}
       <div className="hidden w-full max-w-screen-xl justify-center md:flex">
         <ul className="flex px-4 py-6 space-x-4">
-          <li>
+          
+          {menu.objects.map ( item => (
+            <li>
             <Link
               className="transition ease-in duration-300 py-2 px-4 hover:text-purple-600"
-              href="post/Design"
+              href={`/pos/${item.slug}`}
             >
-              Design
+              {item.title}
             </Link>
           </li>
-          <li>
-            <Link
-              className="transition ease-in duration-300 py-2 px-4 hover:text-purple-600"
-              href="post/3d"
-            >
-              3D
-            </Link>
-          </li>
-          <li>
-            <Link
-              className="transition ease-in duration-300 py-2 px-4 hover:text-purple-600"
-              href="post/Dev"
-            >
-              Dev
-            </Link>
-          </li>
+          ))}
+          
         </ul>
       </div>
     </div>
