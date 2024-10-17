@@ -128,9 +128,6 @@ Para mais informações ou oportunidades de colaboração, entre em contato:
 LinkedIn
 Email  
 
-```swift
-Esse README detalha a estrutura e as funcionalidades do projeto, com foco na renderização 3D e no uso de um CMS, proporcionando uma visão completa e profissional do seu portfólio.
-```
 
 
 
