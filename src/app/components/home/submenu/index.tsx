@@ -49,11 +49,11 @@ export function Submenu({menu}: SubMenuProp) {
         <ul className="flex flex-col items-start space-y-6">
          
           {menu.objects.map( item => (
-            <li  className="flex items-center">
+            <li key={item.slug}  className="flex items-center">
             <Move3D color="black" />
             <Link
               className="transition ease-in duration-300 py-2 px-4 text-xl hover:text-purple-600  text-black"
-              href={`/pos/${item.slug}`}
+              href={`/post/${item.slug}`}
               onClick={toggleMenu} // Fechar o menu ao clicar
             >
               {item.title}
@@ -69,10 +69,10 @@ export function Submenu({menu}: SubMenuProp) {
         <ul className="flex px-4 py-6 space-x-4">
           
           {menu.objects.map ( item => (
-            <li>
+            <li key={item.slug}>
             <Link
               className="transition ease-in duration-300 py-2 px-4 hover:text-purple-600"
-              href={`/pos/${item.slug}`}
+              href={`/post/${item.slug}`}
             >
               {item.title}
             </Link>
