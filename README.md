@@ -1,6 +1,6 @@
 # Portfólio Profissional - Brendon Santos
 
-Este projeto é um portfólio pessoal desenvolvido para estudos e desenvolvimento profissional, utilizando tecnologias modernas como **Next.js**, **Three.js** e **React Fiber** para criar experiências interativas em 3D.
+Este projeto é um portfólio pessoal ainda em desenvolvimento com o objetivo em estudos e desenvolvimento profissional, utilizando tecnologias modernas como **Next.js**, **Three.js** e **React Fiber** para criar experiências interativas em 3D.
 
 ## Tecnologias Utilizadas
 
@@ -122,11 +122,10 @@ especialmente na integração de gráficos 3D interativos com Three.js e React F
 - Conclusão da integração com CMS externo para gerenciamento dinâmico.
 - Adição de mais animações e interações com o usuário utilizando Three.js.
 
-## Contato
-Para mais informações ou oportunidades de colaboração, entre em contato:
 
-LinkedIn
-Email  
+
+
+
 
 
 
