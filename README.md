@@ -14,6 +14,23 @@ Este projeto é um portfólio pessoal ainda em desenvolvimento com o objetivo em
 
 ## Funcionalidades Principais
 
+### Integração com CMS Cosmic
+
+Este projeto utiliza o **[CMS Cosmic](https://www.cosmicjs.com/)** para gerenciar e atualizar conteúdos do portfólio de forma dinâmica e eficiente. A integração com o Cosmic permite que informações como textos, imagens, projetos e links possam ser modificados diretamente no painel do CMS, sem a necessidade de alterações no código-fonte.
+
+#### **Por que usar o Cosmic?**
+- **Facilidade de atualização:** Atualize o conteúdo do portfólio de qualquer lugar com uma interface amigável.
+- **Separação entre conteúdo e código:** Mantenha o código do portfólio limpo e focado apenas na lógica de apresentação e funcionalidades.
+- **Flexibilidade:** Adicione novas seções ou edite conteúdo existente sem a necessidade de reimplantar o projeto.
+
+#### **Funcionalidades integradas:**
+- Atualização de **projetos** listados no portfólio.
+- Gerenciamento de **textos e imagens** do site.
+- Customização de **links sociais e descrições** diretamente pelo painel do Cosmic.
+
+Essa abordagem torna o portfólio escalável e fácil de manter, ideal para manter seu perfil sempre atualizado. 
+
+
 ### Renderização 3D com Three.js e React Fiber
 
 O projeto faz uso extensivo de gráficos 3D, utilizando Three.js para renderizar um modelo 3D com animações e controle de câmera. Abaixo está um exemplo de como a cena principal é configurada:
